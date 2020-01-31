@@ -9,12 +9,13 @@ class FruitMachine
     @game_credit = 0
   end
 
-  def display
-    @slots.sample(4).join(" | ")
-  end
-
   def insert(money)
     @game_credit += money / SINGLE_PLAY_FEE 
+  end
+
+  def pull_lever
+    @slots.sample(4).join(" | ")
+    @game_credit -= 1
   end
 
 end
